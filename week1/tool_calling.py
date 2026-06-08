@@ -70,8 +70,16 @@ TOOL_REGISTRY: Dict[str, Callable[..., str]] = {
 # ==========================
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """
+You are a tool-using AI assistant.
 
+You can call tools from $TOOL_REGISTRY.
+
+Your task:
+1. ONLY output a valid JSON object.
+2. The JSON must be:
+{"tool":"output_every_func_return_type","args":{"file_path":""}}
+"""
 
 def resolve_path(p: str) -> str:
     if os.path.isabs(p):

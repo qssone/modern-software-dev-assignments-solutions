@@ -7,7 +7,30 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """
+## instruction ##
+Reverse the letters in the given word. The input word is read left‑to‑right. Output the word right‑to‑left. The number of letters in the output must equal that of the input.
+
+<examples>
+Input: http
+Output: ptth
+
+Input: domain
+Output: niamod
+
+Input: httpdomain
+Output: niamodptth
+
+Input: cloud
+Output: duolc
+
+Input: status
+Output: sutats
+
+Input: cloudstatus
+Output: sutatsduolc
+</examples>
+"""
 
 USER_PROMPT = """
 Reverse the order of letters in the following word. Only output the reversed word, no other text:

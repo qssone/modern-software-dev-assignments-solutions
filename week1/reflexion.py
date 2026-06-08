@@ -15,8 +15,9 @@ Keep the implementation minimal.
 """
 
 # TODO: Fill this in!
-YOUR_REFLEXION_PROMPT = ""
-
+YOUR_REFLEXION_PROMPT = """You are a coding assistant. 
+Output fixed Python code block that defines the function `is_valid_password(password: str) -> bool`.
+"""
 
 # Ground-truth test suite used to evaluate generated code
 SPECIALS = set("!@#$%^&*()-_")
@@ -96,7 +97,17 @@ def your_build_reflexion_context(prev_code: str, failures: List[str]) -> str:
 
     Return a string that will be sent as the user content alongside the reflexion system prompt.
     """
-    return ""
+    context = f"""
+    Fix the `is_valid_password` function based on the provided $Test failures.
+    The `is_valid_password` in $Previous code still have some bugs. 
+    Previous code:
+    {prev_code}
+    $Test failures shows cases, results and reasons. 
+    Test failures:
+    {'\n'.join(failures)}
+    Fix the bugs so that all the $TEST_CASES can pass.
+    """
+    return context
 
 
 def apply_reflexion(

@@ -8,7 +8,7 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = "This is a math calculator. Think step by step, and show every step clearly. Try calculate complex problem by finding the patterns. "
 
 
 USER_PROMPT = """
